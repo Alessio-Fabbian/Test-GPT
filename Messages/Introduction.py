@@ -1,5 +1,5 @@
-import Character
-import Utils
+from Character import Character
+from Messages import Utils
 
 
 class Introduction:
@@ -25,7 +25,7 @@ class Introduction:
         if self.utils.check_sn_answer(response, self.intro):
             self.rules()
         else:
-            self.end_game()
+            self.utils.end_game()
 
     def rules(self):
         text = ("Bene! Adesso ti spiego le regole del gioco:\n"
@@ -43,13 +43,9 @@ class Introduction:
             print(textb)
 
         else:
-            self.end_game()
+            self.utils.end_game()
 
-    @staticmethod
-    def end_game():
-        text = ("Mi dispiace, ma qualcosa è andato storto. \n"
-                "Riavvia il programma per iniziare nuovamente la partita.")
-        print(text)
+
 
 
 

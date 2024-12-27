@@ -1,11 +1,9 @@
-import Forest
-import Messages
-import Character
+from Messages import Introduction
 
 
 def start_game():
 
-    mexxages = Messages.Introduction()
+    mexxages = Introduction.Introduction()
 
     mexxages.start_game()
 

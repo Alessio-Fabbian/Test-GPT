@@ -11,3 +11,9 @@ class Utils:
         else:
             print("Non hai dato una risposta valida. Riprova, grazie.")
             return function()
+
+    @staticmethod
+    def end_game():
+        text = ("Mi dispiace, ma qualcosa è andato storto. \n"
+                "Riavvia il programma per iniziare nuovamente la partita.")
+        print(text)
