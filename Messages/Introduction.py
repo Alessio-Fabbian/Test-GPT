@@ -1,4 +1,4 @@
-from Character import Character
+from Character import Stats
 from Messages import Utils
 
 
@@ -25,7 +25,7 @@ class Introduction:
         if self.utils.check_sn_answer(response, self.intro):
             self.rules()
         else:
-            self.utils.end_game()
+            self.utils.end_game_corrupted()
 
     def rules(self):
         text = ("Bene! Adesso ti spiego le regole del gioco:\n"
@@ -41,9 +41,8 @@ class Introduction:
         if self.utils.check_sn_answer(response, self.rules):
             textb = "Ottimo! Buona Fortuna!"
             print(textb)
-
         else:
-            self.utils.end_game()
+            self.utils.end_game_corrupted()
 
 
 

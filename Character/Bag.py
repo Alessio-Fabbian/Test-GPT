@@ -6,7 +6,7 @@ class Bag:
         self.size = 10
         self.items = []
 
-    def add(self, item):
+    def add(self, item: str):
         if len(self.items) < self.size:
             self.items.append(item)
             print("L'oggetto è stato aggiunto alla borsa.")
@@ -29,4 +29,5 @@ class Bag:
         print(f"{object_to_remove} è stato scambiato con {item}.")
 
     def show_items(self):
+        print("Ecco il contenuto del tuo zaino:")
         print(self.items)
