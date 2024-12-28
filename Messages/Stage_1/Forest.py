@@ -17,14 +17,4 @@ class Forest(Chapter):
         else:
             self.animals = self.animals.wolfs
 
-    def chapter_1_intro(self):
-        text = ("La tua avventura inizia in una foresta. \n"
-                f"E' {self.season}, il cielo è {self.weather}. E' {self.daytime}.\n"
-                f"Ti trovi su un sentiero, ma non ti ricordi più la direzione di casa.\n"
-                f"Gli unici oggetti che hai con te sono un celluare scarico, un panino ed una bottiglia d'acqua.\n"
-                f"(Si trovano tutti all'interno del tuo zaino. Nel tuo zaino c'è posto ancora per 7 oggetti)\n"
-                f""
-                f"Guardati attorno e cerca un modo per uscire da questa foresta!\n"
-                f"Ma fai attenzioni ai pericoli che potresti incontrare...\n")
-        print(text)
-        self.move_choice()
+

@@ -16,7 +16,6 @@ class Chapter:
         choice = int(input())
         self.check_choice(choice, self.move_choice)
 
-
     def check_choice(self, choice: int, function):
         if choice < 1 or choice > 4:
             print("Azione non valida. Riprova.")
@@ -32,7 +31,6 @@ class Chapter:
 
         action = actions_list[str(choice)]
         action()
-
 
     def look_around(self, text: str = None, objects: list[str] = None):
         print("Ti stai guardando attorno.\n")
