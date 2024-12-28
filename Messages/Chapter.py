@@ -1,9 +1,9 @@
-from Utils import Utils
+from Messages.Utils import Utils
+
 
 class Chapter:
     def __init__(self):
         self.utils = Utils()
-        self.stats =
 
     def move_choice(self, voice: str = None):
         text = ("Cosa vuoi fare?\n"
@@ -20,7 +20,7 @@ class Chapter:
     def check_choice(self, choice: int, function):
         if choice < 1 or choice > 4:
             print("Azione non valida. Riprova.")
-            return function()
+            function()
         else:
             self.action_wrapper(choice)
 
@@ -44,21 +44,20 @@ class Chapter:
                   f"Vuoi raccoglierne uno? (S/N)")
             response = str(input())
             if self.utils.check_sn_answer(response, self.look_around):
-
-
+                exit()
         else:
             print("Non sembra esserci nulla di interessante.")
 
 
-    def go_on(self):
-
-
-    def go_back(self):
-
-
-    def see_bag(self):
-        print("Ecco il contenuto della tua borsa:")
-        print()
+    # def go_on(self):
+    #
+    #
+    # def go_back(self):
+    #
+    #
+    # def see_bag(self):
+    #     print("Ecco il contenuto della tua borsa:")
+    #     print()
 
 
 

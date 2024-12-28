@@ -1,10 +1,10 @@
-from Character import Stats
+from Character.Stats import Stats
 from Messages import Utils
 
 
 class Introduction:
     def __init__(self):
-        self.character = Character.Stats()
+        self.character = Stats()
         self.utils = Utils.Utils()
 
     def start_game(self):

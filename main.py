@@ -1,5 +1,5 @@
 from Messages import Introduction
-
+from Messages.Stage_1.Forest import Forest
 
 def start_game():
 
@@ -8,6 +8,10 @@ def start_game():
     mexxages.start_game()
 
     mexxages.intro()
+
+    chapter1 = Forest()
+
+    chapter1.chapter_1_intro()
 
 
 if __name__ == "__main__":
