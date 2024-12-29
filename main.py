@@ -1,5 +1,6 @@
-from Messages import Introduction
-from Messages.Stage_1.Simulation_stage_1 import Simulation1
+from Src import Introduction
+from Src.Stage_1.Simulation_stage_1 import Simulation1
+
 
 def start_game():
 

@@ -1,13 +1,14 @@
 import random
-from Character.Bag import Bag
-from Messages.Utils import Utils
+from Src.Character.Bag import Bag
+from Src.Utils import Utils
 
 
 class Stats:
     def __init__(self):
         self.name = ""
-        self.energy = random.choice([3, 4, 5])
+        self.energy = random.choice([4, 5, 6])
         self.power = random.choice([3, 4, 5])
+        self.eye = True
         self.n_of_lifes = 3
         self.bag = Bag()
 
@@ -58,4 +59,5 @@ class Stats:
             return False
         else:
             return True
+
 

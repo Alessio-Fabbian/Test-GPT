@@ -1,5 +1,5 @@
-from Messages.Stage_1.Forest import Forest
-from Messages.Utils import Utils
+from Src.Stage_1.Forest import Forest
+from Src.Utils import Utils
 
 
 class Simulation1:
@@ -18,12 +18,12 @@ class Simulation1:
             self.increase_counter()
 
         self.animal_shows()
-
+        self.forest.profile.actions.go_on()
 
 
     def chapter_1_intro(self):
         text = ("La tua avventura inizia in una foresta. \n"
-                f"E' {self.forest.season}, il cielo è {self.forest.weather}. E' {self.forest.daytime}.\n"
+                f"E' {self.forest.weather.season}, il cielo è {self.forest.weather.weather}. E' {self.forest.weather.daytime}.\n"
                 f"Ti trovi su un sentiero, ma non ti ricordi più la direzione di casa.\n"
                 f"Gli unici oggetti che hai con te sono un celluare scarico, un panino ed una bottiglia d'acqua.\n"
                 f"(Si trovano tutti all'interno del tuo zaino. Nel tuo zaino c'è posto ancora per 7 oggetti)\n"

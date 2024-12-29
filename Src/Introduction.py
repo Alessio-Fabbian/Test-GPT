@@ -1,5 +1,5 @@
-from Character.Stats import Stats
-from Messages import Utils
+from Src.Character.Stats import Stats
+from Src import Utils
 
 
 class Introduction:

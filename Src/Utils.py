@@ -1,6 +1,5 @@
 
 
-
 class Utils:
     def check_sn_answer(self, answer: str, function=None):
         answer = answer.strip().lower()
