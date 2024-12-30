@@ -3,12 +3,13 @@ from Src.Character.Profile import Profile
 
 import random
 
+
 class Chapter:
     def __init__(self):
         self.utils = Utils()
         self.profile = Profile()
 
-    def move_choice(self, voice: str = None):
+    def move_choice(self, comment: str = None, voice: list[str] = None):
         text = ("Cosa vuoi fare?\n"
                 "1) Guardati attorno\n"
                 "2) Vai avanti\n"
@@ -17,18 +18,7 @@ class Chapter:
                 )
         print(text)
         choice = int(input())
-        self.check_choice(choice, self.move_choice)
-
-    def check_choice(self, choice: int, function):
-        if choice < 1 or choice > 4:
-            print("Azione non valida. Riprova.")
-            function()
-        else:
-            self.action_wrapper(choice)
-
-    def action_wrapper(self, choice: int):
-        action = self.profile.actions.default_actions[str(choice)]
-        return action()
+        self.utils.check_choice(choice, self.move_choice, self.profile.default_actions, comment, voice)
 
     def unlock_item(self, item: str = None):
         if item is not None:

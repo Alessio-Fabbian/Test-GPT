@@ -1,3 +1,4 @@
+from typing import Any
 
 
 class Utils:
@@ -13,6 +14,14 @@ class Utils:
                 return function()
             else:
                 self.end_game_corrupted()
+
+    @staticmethod
+    def check_choice(choice: int, function, wrapper: dict[str, Any], text: str = None, voice: list[str] = None):
+        if choice < 1 or choice > 4:
+            print("Azione non valida. Riprova.")
+            function()
+        else:
+            wrapper[str(choice)](text, voice)
 
     @staticmethod
     def end_game_corrupted():

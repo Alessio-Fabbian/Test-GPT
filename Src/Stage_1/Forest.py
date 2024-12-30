@@ -8,7 +8,7 @@ class Forest(Chapter):
         super().__init__()
         self.animals = Animals()
         self.weather = Weather()
-        self.objects = ["Ramo", "Sasso", "Foglie"]
+        self.objects = ["Rami", "Sassi", "Foglie"]
         self.unlockable = ["Fungo", "Vegetali", "Accendino", "Occhiali", "Laccio", "Vaso"]
 
         if self.weather.season == "Estate":

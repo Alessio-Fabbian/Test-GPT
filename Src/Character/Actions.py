@@ -10,12 +10,7 @@ class Actions:
             "run_away": self.run_away,
             "interact": self.interact
         }
-        self.default_actions = {
-            "1": self.look_around,
-            "2": self.go_on,
-            "3": self.go_back,
-            "4": self.see_bag
-        }
+
 
     @staticmethod
     def eat_some(food: str) -> int:
@@ -35,20 +30,6 @@ class Actions:
             print(f"{beverage} non è potabile.")
             return 0
 
-    def look_around(self, text: str = None, objects: list[str] = None):
-        print("Ti stai guardando attorno.\n")
-        if text is not None:
-            print(text)
-        if objects is not None:
-            print("Ci sono degli oggetti a terra:\n"
-                  f"{objects}"
-                  f"Vuoi raccoglierne uno? (S/N)")
-            response = str(input())
-            if self.utils.check_sn_answer(response, self.look_around):
-                exit()
-        else:
-            print("Non sembra esserci nulla di interessante.")
-
 
     def go_on(self):
         pass
@@ -59,16 +40,24 @@ class Actions:
 
 
     def see_bag(self):
-        print("Ecco il contenuto della tua borsa:")
-        pass
+        print("Cosa vuoi vedere?\n")
+        text = (
+                "1) Guarda il contenuto della borsa\n"
+                "2) Controlla le proprietà di un oggetto\n"
+                "3) Usa un oggetto\n"
+                "4) Vedi lista dei progetti\n"
+                "5) Chiudi la borsa\n"
+                )
+        print(text)
+        response = int(input())
+        return response
 
     def use_object(self, object: str):
         pass
 
-    def new_action(self, new_one: str):
+    def new_action_number(self, new_one: str) -> int:
         if new_one in self.unlock.keys():
-            action_number = self.new_wrapper(new_one)
-            self.default_actions[str(action_number)] = self.unlock[new_one]
+            return self.new_wrapper(new_one)
 
     @staticmethod
     def new_wrapper(new_one: str) -> int:

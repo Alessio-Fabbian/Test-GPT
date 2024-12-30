@@ -14,7 +14,7 @@ class Simulation1:
         self.chapter_1_intro()
 
         while self.counter < 3:
-            self.forest.move_choice()
+            self.forest.move_choice(None, self.forest.objects)
             self.increase_counter()
 
         self.animal_shows()
