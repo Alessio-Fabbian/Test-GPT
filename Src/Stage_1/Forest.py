@@ -1,6 +1,7 @@
 from Src.Stage_1.Animals import Animals
 from Src.Chapter import Chapter
 from Src.Weather import Weather
+from Src.Character.Objects.Items import Log
 
 
 class Forest(Chapter):
@@ -8,7 +9,8 @@ class Forest(Chapter):
         super().__init__()
         self.animals = Animals()
         self.weather = Weather()
-        self.objects = ["Rami", "Sassi", "Foglie"]
+        self.ob_list = [Log]
+        self.objects = self.utils.init_object(self.ob_list)
         self.unlockable = ["Fungo", "Vegetali", "Accendino", "Occhiali", "Laccio", "Vaso"]
 
         if self.weather.season == "Estate":

@@ -1,5 +1,7 @@
 from typing import Any
 
+from Src.Character.Object import Object
+
 
 class Utils:
     def check_sn_answer(self, answer: str, function=None):
@@ -14,6 +16,21 @@ class Utils:
                 return function()
             else:
                 self.end_game_corrupted()
+
+    @staticmethod
+    def init_object(box: list[Object]):
+        output = []
+        for element in box:
+            component = element()
+            output.append(component)
+
+        return output
+
+
+    @staticmethod
+    def check_typing(word: str):
+        word_lower = word.strip().lower()
+        return word_lower.capitalize()
 
     @staticmethod
     def check_choice(choice: int, function, wrapper: dict[str, Any], text: str = None, voice: list[str] = None):

@@ -1,5 +1,6 @@
 from Src.Utils import Utils
 from Src.Character.Profile import Profile
+from Src.Character.Objects.Items import Log,Sandwhich,Phone
 
 import random
 
@@ -33,10 +34,6 @@ class Chapter:
         else:
             pass
 
-
-
-
-    # def unlock_action(self):
 
 
 
