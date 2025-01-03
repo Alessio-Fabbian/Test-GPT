@@ -19,8 +19,6 @@ class Simulation1:
 
         self.animal_shows()
 
-
-
     def chapter_1_intro(self):
         text = ("La tua avventura inizia in una foresta. \n"
                 f"E' {self.forest.weather.season}, il cielo è {self.forest.weather.weather}. E' {self.forest.weather.daytime}.\n"
