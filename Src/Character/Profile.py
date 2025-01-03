@@ -12,8 +12,8 @@ class Profile:
 
         self.default_actions = {
             "1": self.look_around,
-            "2": self.eat,
-            "3": self.eat,
+            "2": self.move_on,
+            "3": self.move_back,
             "4": self.open_bag
         }
 
@@ -28,7 +28,7 @@ class Profile:
         print(f"La tua energia è aumentata di +{energy_increase}.")
 
     def use(self, object: str):
-        if self.stats.bag.is_in_bag(object):
+        if self.bag.is_in_bag(object):
             self.actions.use_object(object)
         else:
             print(f"Non hai {object} all'interno dello zaino.")
@@ -41,7 +41,7 @@ class Profile:
                 print("Hai chiuso la borsa.\n")
                 break
             else:
-                self.utils.check_choice(response, self.open_bag, self.stats.bag.actions)
+                self.utils.check_choice(response, self.open_bag, self.bag.actions)
 
     def unlock_action(self, new_one: str):
         number = self.actions.new_action_number(new_one)
@@ -70,16 +70,24 @@ class Profile:
         response = str(input())
         for element in objects:
             if response == element.name:
-                if not self.stats.bag.is_in_bag(response):
-                    self.stats.bag.add(response, objects)
+                if not self.bag.is_in_bag(response):
+                    self.bag.add(response, objects)
                 else:
                     print(f"L'oggetto {response} si trova già nel tuo zaino.")
             else:
                 print(f"L'oggetto {response} non esiste, riprova.")
                 self.pick_up(objects)
 
-    # @property
-    # def bag(self):
-    #     return self.stats.bag
+    @staticmethod
+    def move_on(text: str = None, objects: list[str] = None):
+        print("Procedi dritto al prossimo blocco.")
+
+    @staticmethod
+    def move_back(text: str = None, objects: list[str] = None):
+        print("Torni indietro al precedente blocco.")
+
+    @property
+    def bag(self):
+        return self.stats.bag
 
 

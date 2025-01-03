@@ -60,3 +60,11 @@ class Sandwhich(Object):
         self.set_energy(3)
         self.is_usable(True)
         self.give_property("Può essere usato come cibo, oppure come esca/distrazione per gli animali.")
+
+
+class Lighter(Object):
+    def __init__(self):
+        super().__init__()
+        self.set_name("Accendino")
+        self.is_usable(True)
+        self.give_property("Può essere usato per creare il Fuoco, da cui le Torcie.")

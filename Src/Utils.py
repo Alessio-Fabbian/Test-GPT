@@ -1,6 +1,7 @@
 from typing import Any
 
 from Src.Character.Object import Object
+from Src.Character.Objects.Projects.Project import Project
 
 
 class Utils:
@@ -18,7 +19,7 @@ class Utils:
                 self.end_game_corrupted()
 
     @staticmethod
-    def init_object(box: list[Object]):
+    def init_object(box: list[Object | Project]):
         output = []
         for element in box:
             component = element()

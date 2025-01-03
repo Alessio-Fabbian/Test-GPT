@@ -1,6 +1,8 @@
 from Src.Character.Object import Object
+from Src.Character.Objects.Projects.Project import Project
 from Src.Utils import Utils
 from Src.Character.Objects.Items import Sandwhich, Phone
+from Src.Character.Objects.Projects.Instruments import Fire, Shield
 
 
 class Bag:
@@ -8,12 +10,14 @@ class Bag:
         self.size = 10
         self.utils = Utils()
         self.items = self.utils.init_object([Sandwhich, Phone])
+        self.pro_list = [Fire, Shield]
         self.actions = {
             "1": self.show_items,
             "2": self.property_check,
-            "3": self.use,
-            "4": self.projects
+            "3": self.property_check,
+            "4": self.see_projects
         }
+        self.projects_open = self.utils.init_object(self.pro_list)
 
     def add(self, item: str, objects: list[Object]):
         if len(self.items) < self.size:
@@ -44,19 +48,23 @@ class Bag:
     def show_items(self, text: str = None, objects: list[str] = None):
         print("Ecco il contenuto del tuo zaino:")
         for element in self.items:
-            print(f'{element.name}')
+            print(f'- {element.name}')
 
     def property_check(self, text: str = None, objects: list[str] = None):
         print("Ecco le proprietà dei tuoi oggetti:.\n")
         for element in self.items:
-            print(f'{element.name}:\n'
+            print(f'- {element.name}:\n'
                   f'{element.property}\n')
 
     def use(self):
         pass
 
-    def projects(self):
-        pass
+    def see_projects(self, text: str = None, objects: list[str] = None):
+        print("Ecco gli oggetti che puoi costruire: \n")
+        for element in self.projects_open:
+            print(f"- {element.title}")
+            print(f"Necessario: {element.needed}")
+            print(f"{element.property}\n")
 
     def is_in_bag(self, item: str):
         name = self.utils.check_typing(item)
@@ -76,3 +84,10 @@ class Bag:
             else:
                 continue
 
+    @staticmethod
+    def proj_wrapper(project: str) -> Project:
+        wrap = {
+            "Fuoco": Fire,
+        }
+
+        return wrap[project]
