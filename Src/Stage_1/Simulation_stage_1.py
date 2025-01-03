@@ -18,7 +18,7 @@ class Simulation1:
             self.increase_counter()
 
         self.animal_shows()
-        self.forest.profile.actions.go_on()
+
 
 
     def chapter_1_intro(self):
@@ -32,10 +32,9 @@ class Simulation1:
                 f"Ma fai attenzioni ai pericoli che potresti incontrare...\n")
         print(text)
 
-
     def animal_shows(self):
         text = ("In lontananza si sentono dei rumori tra gli alberi...\n"
-                "Forse sono degli animali che si muovono."
+                "Forse sono degli animali selvatici che si muovono."
                 "Vuoi andare in quella direzione? (S/N)")
         print(text)
         response = str(input())
@@ -45,13 +44,17 @@ class Simulation1:
         else:
             print("Ti dirigi dalla parte opposta.")
 
-
     def animal_encounter(self):
         self.animal_crossing = True
-        text = (f"Dopo qualche passo, intravedi in lontananza un {self.forest.animals.name}.\n"
+        text = (f"Dopo qualche passo, intravedi in lontananza un {self.animals.name}.\n"
                 f"Non sembra che ti abbia ancora notato.\n"
                 f"Cosa vuoi fare?")
         print(text)
+
+
+    @property
+    def animals(self):
+        return self.forest.animals
 
 
 

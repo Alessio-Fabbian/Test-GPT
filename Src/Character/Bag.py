@@ -2,7 +2,7 @@ from Src.Character.Object import Object
 from Src.Character.Objects.Projects.Project import Project
 from Src.Utils import Utils
 from Src.Character.Objects.Items import Sandwhich, Phone, Lighter
-from Src.Character.Objects.Projects.Instruments import Fire, Shield
+from Src.Character.Objects.Projects.Instruments import Fire, Shield, Torch
 
 
 class Bag:
@@ -10,7 +10,7 @@ class Bag:
         self.size = 10
         self.utils = Utils()
         self.items = self.utils.init_object([Sandwhich, Phone, Lighter])
-        self.pro_list = [Fire, Shield]
+        self.pro_list = [Fire, Shield, Torch]
         self.actions = {
             "1": self.show_items,
             "2": self.property_check,

@@ -17,3 +17,12 @@ class Shield(Project):
         self.name = self.title
         self.needed = ["Rami", "Laccio"]
         self.property = "Serve per difendersi dagli attacchi."
+
+
+class Torch(Project):
+    def __init__(self):
+        super().__init__()
+        self.title = "Torcia"
+        self.name = self.title
+        self.needed = ["Rami", "Fuoco", "Laccio"]
+        self.property = "Serve per allontanare gli animali selvatici"

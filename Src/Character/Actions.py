@@ -5,12 +5,10 @@ class Actions:
     def __init__(self):
         self.utils = Utils()
         self.unlock = {
-            "build": self.build_something,
             "attack": self.attack,
             "run_away": self.run_away,
             "interact": self.interact
         }
-
 
     @staticmethod
     def eat_some(food: str) -> int:
@@ -30,30 +28,19 @@ class Actions:
             print(f"{beverage} non è potabile.")
             return 0
 
-
-    def go_on(self):
-        pass
-
-
-    def go_back(self):
-        pass
-
-
-    def see_bag(self):
+    @staticmethod
+    def see_bag():
         print("Cosa vuoi vedere?\n")
         text = (
                 "1) Guarda il contenuto della borsa\n"
-                "2) Controlla le proprietà di un oggetto\n"
-                "3) Usa un oggetto\n"
+                "2) Controlla le proprietà degli oggetti\n"
+                "3) Costruisci un progetto\n"
                 "4) Vedi lista dei progetti\n"
                 "5) Chiudi la borsa\n"
                 )
         print(text)
         response = int(input())
         return response
-
-    def use_object(self, object: str):
-        pass
 
     def new_action_number(self, new_one: str) -> int:
         if new_one in self.unlock.keys():
@@ -78,9 +65,6 @@ class Actions:
             for key in self.default_actions.keys():
                 if int(key) > 4:
                     self.default_actions.pop(key)
-
-    def build_something(self):
-        pass
 
     def attack(self):
         pass
