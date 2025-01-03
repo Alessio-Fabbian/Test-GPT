@@ -16,10 +16,10 @@ class Forest(Chapter):
 
         if self.weather.season == "Estate":
             self.animals = self.animals.bear
-            self.unlockable.append("Frutto")
+            #self.unlockable.append("Frutto")
         else:
             self.animals = self.animals.wolfs
-            self.objects.append("Neve")
+            #self.objects.append("Neve")
 
         self.init_blocks()
 

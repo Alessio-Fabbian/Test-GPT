@@ -72,8 +72,10 @@ class Profile:
             if response == element.name:
                 if not self.bag.is_in_bag(response):
                     self.bag.add(response, objects)
+                    break
                 else:
                     print(f"L'oggetto {response} si trova già nel tuo zaino.")
+                    break
             else:
                 print(f"L'oggetto {response} non esiste, riprova.")
                 self.pick_up(objects)

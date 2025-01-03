@@ -27,7 +27,6 @@ class Utils:
 
         return output
 
-
     @staticmethod
     def check_typing(word: str):
         word_lower = word.strip().lower()

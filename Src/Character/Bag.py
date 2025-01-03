@@ -1,7 +1,7 @@
 from Src.Character.Object import Object
 from Src.Character.Objects.Projects.Project import Project
 from Src.Utils import Utils
-from Src.Character.Objects.Items import Sandwhich, Phone
+from Src.Character.Objects.Items import Sandwhich, Phone, Lighter
 from Src.Character.Objects.Projects.Instruments import Fire, Shield
 
 
@@ -9,12 +9,12 @@ class Bag:
     def __init__(self):
         self.size = 10
         self.utils = Utils()
-        self.items = self.utils.init_object([Sandwhich, Phone])
+        self.items = self.utils.init_object([Sandwhich, Phone, Lighter])
         self.pro_list = [Fire, Shield]
         self.actions = {
             "1": self.show_items,
             "2": self.property_check,
-            "3": self.property_check,
+            "3": self.build,
             "4": self.see_projects
         }
         self.projects_open = self.utils.init_object(self.pro_list)
@@ -56,8 +56,33 @@ class Bag:
             print(f'- {element.name}:\n'
                   f'{element.property}\n')
 
-    def use(self):
-        pass
+    def build(self, text: str = None, objects: list[str] = None):
+        print("Che progetto voi costruire?\n")
+        for element in self.projects_open:
+            print(f'{element.title}')
+
+        response = str(input())
+        titles = [element.title for element in self.projects_open]
+
+        if response in titles:
+            proj = [element for element in self.projects_open if response == element.title]
+            needs = proj[0].needed
+
+            check_list = []
+            for item in needs:
+                if not self.is_in_bag(item):
+                    print(f"Non hai tutti gli oggetti necessari per la costruzione di {response}.")
+                    check_list.append(False)
+                else:
+                    check_list.append(True)
+
+            if all(check_list):
+                print(f"L'oggetto {response} è stato costruito.")
+                self.items = [item for item in self.items if item.name not in needs]
+                self.items.append(proj[0])
+        else:
+            print(f"Non esiste il progetto {response}")
+            self.build()
 
     def see_projects(self, text: str = None, objects: list[str] = None):
         print("Ecco gli oggetti che puoi costruire: \n")
@@ -88,6 +113,7 @@ class Bag:
     def proj_wrapper(project: str) -> Project:
         wrap = {
             "Fuoco": Fire,
+            "Scudo": Shield
         }
 
         return wrap[project]
