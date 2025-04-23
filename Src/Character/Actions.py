@@ -2,8 +2,8 @@ from Src.Utils import Utils
 
 
 class Actions:
-    def __init__(self):
-        self.utils = Utils()
+    def __init__(self, utils: Utils):
+        self.utils = utils
         self.unlock = {
             "attack": self.attack,
             "run_away": self.run_away,
@@ -42,9 +42,10 @@ class Actions:
         response = int(input())
         return response
 
-    def new_action_number(self, new_one: str) -> int:
+    def new_action_number(self, new_one: str) -> int | None:
         if new_one in self.unlock.keys():
             return self.new_wrapper(new_one)
+        return
 
     @staticmethod
     def new_wrapper(new_one: str) -> int:

@@ -25,7 +25,6 @@ class Chapter:
         if self.check_moving_action(choice):
             self.make_step(choice)
 
-
     def unlock_item(self, item: str = None):
         if item is not None:
             if item in self.unlockable:

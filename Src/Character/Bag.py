@@ -6,9 +6,9 @@ from Src.Character.Objects.Projects.Instruments import Fire, Shield, Torch
 
 
 class Bag:
-    def __init__(self):
+    def __init__(self, utils: Utils):
         self.size = 10
-        self.utils = Utils()
+        self.utils = utils
         self.items = self.utils.init_object([Sandwhich, Phone, Lighter])
         self.pro_list = [Fire, Shield, Torch]
         self.actions = {

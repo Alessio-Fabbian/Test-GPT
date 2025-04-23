@@ -1,5 +1,9 @@
 from Src.Stage_1.Forest import Forest
 from Src.Utils import Utils
+from termcolor import colored
+from colorama import init
+
+init()
 
 
 class Simulation1:
@@ -28,7 +32,7 @@ class Simulation1:
                 f""
                 f"Guardati attorno e cerca un modo per uscire da questa foresta!\n"
                 f"Ma fai attenzioni ai pericoli che potresti incontrare...\n")
-        print(text)
+        print(colored(text, "red"))
 
     def animal_shows(self):
         text = ("In lontananza si sentono dei rumori tra gli alberi...\n"

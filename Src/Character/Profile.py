@@ -6,9 +6,9 @@ from Src.Character.Object import Object
 
 class Profile:
     def __init__(self):
-        self.stats = Stats()
-        self.actions = Actions()
         self.utils = Utils()
+        self.stats = Stats(self.utils)
+        self.actions = Actions(self.utils)
 
         self.default_actions = {
             "1": self.look_around,
